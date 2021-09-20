@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{%  block title %}{{ name }}{% endblock %}
+{% block content %}
+
+    <div class="list">
+
+        <li>
+            {{ item.name }}
+        </li>
+{#            <img src="{{ item.icon.url }}" alt="Item icon">#}
+
+        {% if price_with_sale %}
+            <li>
+                Sale: {{ sale_value }}
+            </li>
+            <li>
+                Price with sale: <s>{{ item.price }}<i class="fas fa-dollar-sign"></i></s> => {{ price_with_sale }}<i class="fas fa-dollar-sign"></i>
+            </li>
+        {% else %}
+            <li>
+                Price: {{ item.price }}$
+            </li>
+        {% endif %}
+
+        <li>
+           Shop: {{ item.shop.name }}
+        </li>
+        <li>
+            Category: {{ item.category }}
+        </li>
+
+    </div>
+
+    <div class="list">
+        There are no comments yet.
+    </div>
+
+{% endblock %}

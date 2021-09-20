@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{%  block title %}Shops{% endblock %}
+{% block content %}
+
+    <h2>Sales:</h2>
+    <div class="list">
+    {% if sales %}
+        {% for sale in sales %}
+            <li>
+                {{ sale.value }}, {{ sale.item }}. From: {{ sale.from_date }} To: {{ sale.to_date }}
+            </li>
+        {%  endfor %}
+    {% else %}
+        There are no sales in your area yet. Sorry!
+    {%  endif %}
+    </div>
+
+
+{% endblock %}

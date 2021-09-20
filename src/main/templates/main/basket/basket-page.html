@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{%  block title %}{{ basket.name }}{% endblock %}
+{% block content %}
+
+    <div class="list">
+        <li>
+            Basket name: {{ basket.name }}
+            {% if basket.favourite %}
+                <span class="fa fa-star"></span>
+            {%  else %}
+                <span class="fa fa-star-o"></span>
+            {% endif %}
+        </li>
+        <li>
+            Delivery address: {{ basket.delivery_address }}
+        </li>
+        <li>
+            Status: {{ basket.status.name }}
+        </li>
+        <li>
+            Creation date: {{ basket.created_at }}
+        </li>
+    </div>
+
+    <div class="list">
+        There is no items yet.
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{%  block title %}Shops{% endblock %}
+{% block content %}
+
+    <div class="list">
+    {% if shops %}
+        {% for shop in shops %}
+            <li>
+                <a href="{% url 'shop_items' %}?shop_id={{ shop.pk }}">{{ shop.name }}, {{ shop.address }}</a>
+            </li>
+        {%  endfor %}
+    {% else %}
+        There are no shops in your area. Sorry!
+    {%  endif %}
+    </div>
+
+
+{% endblock %}
