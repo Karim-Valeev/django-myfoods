@@ -1,3 +1,4 @@
-# valeev_itis_python2k_project_11903
+# Work in progress...
 
-You should create .env file in myfoods dir with special variables
+Food shopping site made using: Django, DRF, Celery, PostgeSQL, Redis.
+It remains to finish the main functionality, layout and add tests, Vue.js.
