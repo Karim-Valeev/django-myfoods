@@ -8,10 +8,11 @@ from api.serializers import BasketSerializer, BasketCreateSerializer, BasketUpda
 from main.models import Basket, Status
 
 
-@api_view(['GET'])
-def test_api_view(request):
+@api_view(["GET"])
+def check_api_view(request):
     """Method for checking api"""
-    return Response({'status': 'ok'})
+    content = {"status": "ok"}
+    return Response(content, status=status.HTTP_200_OK)
 
 
 class BasketChangeOnlyForOwnerPermission(BasePermission):
@@ -25,6 +26,7 @@ class BasketChangeOnlyForOwnerPermission(BasePermission):
 # ModelViewSet include a lot of useful mixins such as List, Generic, CRUD
 class BasketViewSet(ModelViewSet):
     """Baskets"""
+
     permission_classes = [BasketChangeOnlyForOwnerPermission]
 
     def create(self, request, *args, **kwargs):
@@ -36,21 +38,21 @@ class BasketViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         owner = self.request.user
-        status = Status.objects.get(name='Filling')
+        status = Status.objects.get(name="Filling")
         serializer.save(owner=owner, status=status)
 
     def get_serializer_class(self):
-        if self.action == 'retrieve':
+        if self.action == "retrieve":
             return BasketSerializer
-        if self.action == 'create':
+        if self.action == "create":
             return BasketCreateSerializer
-        if self.action == 'update':
+        if self.action == "update":
             return BasketUpdateSerializer
         return BasketSerializer
 
     def get_queryset(self):
         user = self.request.user
-        qs = Basket.objects.select_related('owner', 'status')
+        qs = Basket.objects.select_related("owner", "status")
         if user.is_authenticated:
             qs = qs.filter(owner=user)
         return qs
