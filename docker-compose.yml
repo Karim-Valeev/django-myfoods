@@ -8,8 +8,10 @@ services:
     image: postgres:12.7-alpine
     ports:
       - 5432:5432
-    env_file:
-      - .env
+    environment:  # todo change to .env
+      POSTGRES_DB: mf
+      POSTGRES_USER: mf
+      POSTGRES_PASSWORD: mf
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
