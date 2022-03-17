@@ -20,9 +20,9 @@ services:
     ports:
       - 6379:6379
 
-  flower:
-    image: mher/flower:0.9.7
-    env_file:
-      - .env
-    ports:
-      - 5555:5555
+#  flower:
+#    image: mher/flower:0.9.7
+#    env_file:
+#      - .env
+#    ports:
+#      - 5555:5555
