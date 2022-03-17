@@ -87,13 +87,13 @@ WSGI_APPLICATION = "myfoods.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get("DB_ENGINE"),
-        "NAME": os.environ.get("DB_NAME"),
-        "USER": os.environ.get("DB_USER"),
-        "PASSWORD": os.environ.get("DB_PASSWORD"),
-        "client_encoding": os.environ.get("DB_CLIENT_ENCODING"),
-        "HOST": os.environ.get("DB_HOST"),
-        "PORT": os.environ.get("DB_PORT"),
+        "ENGINE": os.environ.get("DB_ENGINE", "django.db.backends.postgresql_psycopg2"),
+        "NAME": os.environ.get("DB_NAME", "mf"),
+        "USER": os.environ.get("DB_USER", "mf"),
+        "PASSWORD": os.environ.get("DB_PASSWORD", "mf"),
+        "client_encoding": os.environ.get("DB_CLIENT_ENCODING", "UTF8"),
+        "HOST": os.environ.get("DB_HOST", "localhost"),
+        "PORT": os.environ.get("DB_PORT", "5432"),
     }
 }
 
@@ -175,7 +175,7 @@ LOGIN_URL = "/login/"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATICFILES_DIR = os.environ.get("STATICFILES_DIR")
+STATICFILES_DIR = os.environ.get("STATICFILES_DIR", "staticfiles")
 
 STATIC_URL = "/static/"
 
