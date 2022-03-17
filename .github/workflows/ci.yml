@@ -45,7 +45,7 @@ jobs:
         run: docker-compose up -d
 
       - name: Run Django tests
-        run: pytest
+        run: pytest src
 
   telegram-notify:
     needs: tests
