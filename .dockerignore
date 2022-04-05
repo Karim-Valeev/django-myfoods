@@ -215,7 +215,8 @@ dmypy.json
 
 .idea
 sites.txt
-/static
-.env
+.github
+.pytest_cache
 celerybeat-schedule.db
 node_modules
+env

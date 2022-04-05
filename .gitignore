@@ -2,6 +2,7 @@ src/staticfiles/
 test.py
 node_modules
 celerybeat-schedule.db
+docker-compose.yml
 
 ### Django ###
 *.log

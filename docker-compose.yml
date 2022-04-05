@@ -30,7 +30,7 @@ services:
     image: grafana/promtail:1.4.1
     volumes:
       - /var/log:/var/log
-      - ./promtail/promtail.yaml:/etc/promtail/promtail.yml
+      - ./deploy/promtail/promtail.yaml:/etc/promtail/promtail.yml
     command:
       - '-config.file=/etc/promtail/promtail.yml'
 
