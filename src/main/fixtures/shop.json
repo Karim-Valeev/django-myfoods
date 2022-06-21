@@ -1,0 +1,35 @@
+[
+  {
+    "model": "main.shop",
+    "pk": 1,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "site": "https://vk.com/",
+      "name": "Ашан",
+      "address": "MSK"
+    }
+  },
+  {
+    "model": "main.shop",
+    "pk": 2,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "site": "https://ebay.com",
+      "name": "Лента",
+      "address": "KZN"
+    }
+  },
+  {
+    "model": "main.shop",
+    "pk": 3,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "site": "https://amazon.com",
+      "name": "Amazon",
+      "address": "USA"
+    }
+  }
+]

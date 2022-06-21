@@ -1,0 +1,32 @@
+[
+  {
+    "model": "main.sale",
+    "pk": 1,
+    "fields": {
+      "item": 1,
+      "value": "0.66",
+      "from_date": "2021-04-07T08:10:00Z",
+      "to_date": "2021-04-22T14:10:00Z"
+    }
+  },
+  {
+    "model": "main.sale",
+    "pk": 2,
+    "fields": {
+      "item": 2,
+      "value": "0.39",
+      "from_date": "2021-04-03T14:10:00Z",
+      "to_date": "2021-04-07T14:10:00Z"
+    }
+  },
+  {
+    "model": "main.sale",
+    "pk": 3,
+    "fields": {
+      "item": 5,
+      "value": "0.05",
+      "from_date": "2021-04-19T17:55:00Z",
+      "to_date": "2021-04-30T14:10:00Z"
+    }
+  }
+]

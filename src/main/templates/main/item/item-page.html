@@ -1,38 +1,44 @@
 {% extends 'main/base.html' %}
 {%  block title %}{{ name }}{% endblock %}
 {% block content %}
+    <div class="content-block">
+        <div class="top-margin-10px">
+            <div>
+                <img src="{{ item.icon.url }}" width="100px" height="100px" alt="Item picture">
+            </div>
+            <ul style="padding: 0 0 0 20px;">
+                <li>
+                    <b>{{ item.name }}</b>
+                </li>
+                <li>
+                    Category: {{ item.category }}
+                </li>
+                <li>
+                    Shop: {{ item.shop.name }}, {{ item.shop.address }}
+                </li>
+                {#            <img src="{{ item.icon.url }}" alt="Item icon">#}
 
-    <div class="list">
-
-        <li>
-            {{ item.name }}
-        </li>
-{#            <img src="{{ item.icon.url }}" alt="Item icon">#}
-
-        {% if price_with_sale %}
-            <li>
-                Sale: {{ sale_value }}
-            </li>
-            <li>
-                Price with sale: <s>{{ item.price }}<i class="fas fa-dollar-sign"></i></s> => {{ price_with_sale }}<i class="fas fa-dollar-sign"></i>
-            </li>
-        {% else %}
-            <li>
-                Price: {{ item.price }}$
-            </li>
-        {% endif %}
-
-        <li>
-           Shop: {{ item.shop.name }}
-        </li>
-        <li>
-            Category: {{ item.category }}
-        </li>
-
+                {% if price_with_sale %}
+                    <li>
+                        Sale: {{ sale_value }}
+                    </li>
+                    <li>
+                        Price with sale: <b><s>{{ item.price }}<i class="fas fa-dollar-sign"></i></s></b>
+                        => <b>{{ price_with_sale }}</b><i class="fas fa-dollar-sign"></i>
+                    </li>
+                {% else %}
+                    <li>
+                        Price: {{ item.price }}$
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 
-    <div class="list">
-        There are no comments yet.
-    </div>
+
+{#    TODO: Display item comments              #}
+{#    <div class="list">#}
+{#        There are no comments yet.#}
+{#    </div>#}
 
 {% endblock %}

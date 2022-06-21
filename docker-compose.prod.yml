@@ -22,6 +22,19 @@ services:
     depends_on:
       - django
 
+#""" todo add simple driver
+#""" todo grafana envs
+#""" todo rm loki container
+#""" todo rm grafana container
+#""" todo start launching Docker as not root user
+#""" todo add self-hosted github runner
+#""" todo wrap everything with minikube
+#    logging:
+#      driver: loki
+#      options:
+#        loki-url: "https://${GRAFANA_USER}:${GRAFANA_PASSWORD}@logs-prod-eu-west-0.grafana.net/loki/api/v1/push"
+#"""
+
   django:
     build:
       context: ./

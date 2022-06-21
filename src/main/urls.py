@@ -5,8 +5,8 @@ from main.schema import schema
 from main.views import *
 
 urlpatterns = [
-    path('', main_page, name=''),
-    path('redirect_to_main/', RedirectToMainView.as_view(), name='redirect_to_main'),
+    path('', main_page, name='main'),
+    path("about/", about_page, name="about"),
 
     path('login/', login_view, name='login'),
     path('register/', reg_view, name='register'),
@@ -20,7 +20,7 @@ urlpatterns = [
 
     path('shops/', ShopListView.as_view(), name='shops'),
     path('shop/items/', ShopItemListView.as_view(), name='shop_items'),
-    re_path(r'^shop/items/(?P<item_id>[0-9]+)$', item_page, name='item'),
+    path('shop/items/<item_id>/', item_page, name='item'),
     path('shop/items/add_comment/', add_comment, name='add_comment'),
     path('shop/items/like/<int:item_id>', like, name='like'),
     path('shop/items/dislike/<int:item_id>', dislike, name='dislike'),

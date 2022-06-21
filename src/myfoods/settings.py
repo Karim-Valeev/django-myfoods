@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_static_fontawesome",
+    "mathfilters",
     "rest_framework",
     "rest_framework.authtoken",
     "drf_yasg",

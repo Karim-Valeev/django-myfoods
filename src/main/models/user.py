@@ -35,7 +35,7 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     role = models.CharField(choices=Role.choices, default=Role.user, max_length=50)
     birthdate = models.DateField(null=True, blank=True)
-    profile_pic = models.ImageField(upload_to='', default='default_profile_pic.jpg')
+    profile_pic = models.ImageField(upload_to='', default='default_profile_pic.jpg', blank=True)
 
     favourite_categories = models.ManyToManyField(
         Category,

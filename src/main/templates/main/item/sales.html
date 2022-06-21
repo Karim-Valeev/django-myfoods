@@ -1,19 +1,28 @@
 {% extends 'main/base.html' %}
+{% load mathfilters %}
 {%  block title %}Shops{% endblock %}
 {% block content %}
-
-    <h2>Sales:</h2>
-    <div class="list">
-    {% if sales %}
-        {% for sale in sales %}
-            <li>
-                {{ sale.value }}, {{ sale.item }}. From: {{ sale.from_date }} To: {{ sale.to_date }}
-            </li>
-        {%  endfor %}
-    {% else %}
-        There are no sales in your area yet. Sorry!
-    {%  endif %}
+    <div class="content-block">
+        <h2>Sales:</h2>
+        <div class="top-margin-10px">
+            {% if sales %}
+                {% for sale in sales %}
+                    <div class="sales-page-list-element">
+                        <div>
+                            <b>{{ sale.value|mul:100|floatformat:"0" }}%</b> for <a class="profile-link" href="{% url 'item' sale.item.pk %}">{{ sale.item.name }}</a>
+                            in {{ sale.item.shop.name }}, {{ sale.item.shop.address }}!
+                        </div>
+                        <div>
+                            From: {{ sale.from_date }} To: {{ sale.to_date }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                There are no sales in your area yet. Sorry!
+            {% endif %}
+        </div>
     </div>
+
 
 
 {% endblock %}

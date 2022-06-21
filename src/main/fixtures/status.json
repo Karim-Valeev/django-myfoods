@@ -1,0 +1,62 @@
+[
+  {
+    "model": "main.status",
+    "pk": 1,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "code": 111,
+      "name": "Filling"
+    }
+  },
+  {
+    "model": "main.status",
+    "pk": 2,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "code": 222,
+      "name": "Paid"
+    }
+  },
+  {
+    "model": "main.status",
+    "pk": 3,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "code": 205,
+      "name": "Collecting"
+    }
+  },
+  {
+    "model": "main.status",
+    "pk": 4,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "code": 333,
+      "name": "Shipping"
+    }
+  },
+  {
+    "model": "main.status",
+    "pk": 5,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "code": 202,
+      "name": "Delivered"
+    }
+  },
+  {
+    "model": "main.status",
+    "pk": 6,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "code": 555,
+      "name": "Lost"
+    }
+  }
+]

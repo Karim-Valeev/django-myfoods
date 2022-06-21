@@ -1,0 +1,116 @@
+[
+    {
+    "model": "main.item",
+    "pk": 1,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "name": "Milk",
+      "price": "234.01",
+      "shop": 1,
+      "category": 1,
+      "icon": "milk.png",
+      "amount": 12,
+      "kcal": null,
+      "proteins": null,
+      "fats": null,
+      "carbohydrates": null,
+      "like_counter": 0
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 2,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "name": "Steak",
+      "price": "43.00",
+      "shop": 1,
+      "category": 2,
+      "icon": "steak.png",
+      "amount": 1,
+      "kcal": null,
+      "proteins": null,
+      "fats": null,
+      "carbohydrates": null,
+      "like_counter": 0
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 3,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "name": "Water",
+      "price": "3.99",
+      "shop": 2,
+      "category": 5,
+      "icon": "water.png",
+      "amount": 10000,
+      "kcal": null,
+      "proteins": null,
+      "fats": null,
+      "carbohydrates": null,
+      "like_counter": 0
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 4,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "name": "Tea",
+      "price": "4.00",
+      "shop": 2,
+      "category": 5,
+      "icon": "tea.png",
+      "amount": 23,
+      "kcal": null,
+      "proteins": null,
+      "fats": null,
+      "carbohydrates": null,
+      "like_counter": 0
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 5,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "name": "Watermelon",
+      "price": "43.00",
+      "shop": 3,
+      "category": 7,
+      "icon": "watermelon.png",
+      "amount": 4523,
+      "kcal": null,
+      "proteins": null,
+      "fats": null,
+      "carbohydrates": null,
+      "like_counter": 0
+    }
+  },
+  {
+    "model": "main.item",
+    "pk": 6,
+    "fields": {
+      "created_at": null,
+      "updated_at": null,
+      "name": "Banana",
+      "price": "79.17",
+      "shop": 3,
+      "category": 7,
+      "icon": "banana.png",
+      "amount": 666,
+      "kcal": null,
+      "proteins": null,
+      "fats": null,
+      "carbohydrates": null,
+      "like_counter": 0
+    }
+  }
+]

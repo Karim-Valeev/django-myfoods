@@ -7,15 +7,12 @@
 
     <link rel="shortcut icon" href="{% static "main/img/shopping-basket.png" %}">
 
-{#    Todo to make block head insome templates to decrease amount of static files loaded#}
 
-    <link rel="stylesheet" href="{% static 'main/css/header_and_footer.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/switch.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/html_elements_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
-{#    npm модуль слишком старый а CDN использовать не хочется#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "fontawesome/css/all.min.css" %}" />#}
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
@@ -23,44 +20,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/c26cfddc1e.js" crossorigin="anonymous"></script>
+
+    <script src="{% static "main/js/script.js" %}"></script>
+
 </head>
 <body>
-
-{#    {% block header_block %}{% endblock %}#}
     <header>
-        <div class="nav">
-            <div class="pic">
-                <img src="{%  static 'main/img/header/download.png' %}" alt="rus" class="center" width="30" height="40"/>
+        <div class="header">
+            <div class="navigation">
+                <div class="navigation-element">
+                    <a class="navigation-element-link" href="{% url 'main' %}">
+                        Home
+                    </a>
+                </div>
+                <div class="navigation-element">
+                    <a class="navigation-element-link" href="{% url 'about' %}">
+                        About
+                    </a>
+                </div>
+                <div class="navigation-element">
+                    <a class="navigation-element-link" href="{% url 'shops' %}">
+                        Shops
+                    </a>
+                </div>
+                <div class="navigation-element">
+                    <a class="navigation-element-link" href="{% url 'sales' %}">
+                        Sales
+                    </a>
+                </div>
             </div>
-            <div class="pic">
-                <a href="{% url 'shops' %}">Shops</a>
-            </div>
-            <div>
-                <a href="{% url 'sales'%}">
-                    <img src="{% static 'main/img/header/sale.png' %}" class="center" alt="Sale!" width="75" height="60" >
+            <div class="main-title">
+                <a class="main-title-link" href="{% url 'main' %}">
+                    MyFoods
                 </a>
             </div>
-            <div class="center">
-                <a class="main-title-link" style="text-decoration: none" href="{% url '' %}">
-                    <h1>MyFoods</h1>
-
-                </a>
-            </div>
-
-            <div>
-                    {% if user.is_authenticated %}
-                        <span class="profile">
-                            <a class="profile" href="{% url 'profile' %}">{{ user.username }}</a>
-                        </span>
-                        <span class="profile">
-                            <a href="{% url 'baskets' %}">Baskets</a>
-                        </span>
-                    {% else %}
-                        <div class="profile">
-                            Profile
-                        </div>
-                    {% endif %}
-{#                    <a href="{% url 'register' %}">register</a>#}
+            <div class="profile">
+                {% if user.is_authenticated %}
+                    <span class="profile-text">
+                        <a class="profile-link" href="{% url 'profile' %}">{{ user.username }}</a>
+                    </span>
+                {% else %}
+                    <div>
+                        <span class="profile-text"><a class="profile-link" href="{% url 'login' %}">Login</a></span>
+                        <span class="profile-text"><a class="profile-link" href="{% url 'register' %}">Register</a></span>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </header>
@@ -69,32 +74,5 @@
         Content
     {% endblock %}
 
-    <footer>
-        <div class="footer">
-            <div class="footer-text">
-                <div>
-                    <span class="fa fa-copyright" aria-hidden="true"></span> MyFoods, 2007-2021
-                </div>
-                <div>
-                    Site development: Karim, <a href="https://github.com/Karim-Valeev">https://github.com/Karim-Valeev</a>
-                </div>
-            </div>
-
-            <div class="center">
-                <img src="{% static 'main/img/footer/mir_viza_mc_2019.png' %}" class="img-center" alt="footer" width="270" height="74">
-            </div>
-
-            <div>
-                <a href="https://www.instagram.com/wakai___kami/" class="insta" >
-                    <i class="fab fa-instagram fa-lg" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-
-    <script src="{% static "node_modules/jquery/dist/jquery.min.js" %}"></script>
-    <script src="{% static "node_modules/bootstrap/dist/js/bootstrap.min.js" %}"></script>
-    <script src="{% static "main/js/script.js" %}"></script>
 </body>
 </html>

@@ -53,9 +53,8 @@ def reg_view(request):
                 except IntegrityError:
                     message = 'Try to register one more time, please'
             else:
-                message = "The passwords entered do not match. Try again"
+                message = "The entered passwords do not match. Try again"
         else:
-            form = RegForm()
             message = 'Form not valid, something missing'
     return render(request, 'main/user/register.html', {
         'form': form,
@@ -78,7 +77,7 @@ def profile_view(request):
     )
 
     categories = Category.objects.all().filter(query)
-    if len(categories) != 0:
+    if categories:
         selected_category = categories[0]
         if len(categories) > 1:
             remaining_categories = categories[1:]
@@ -86,10 +85,7 @@ def profile_view(request):
     return render(
         request,
         'main/user/profile.html',
-        {
-            'selected_category': selected_category,
-            'remaining_categories': remaining_categories,
-        }
+        {'selected_category': selected_category, 'remaining_categories': remaining_categories}
     )
 
 

@@ -7,7 +7,7 @@ from main.models.item_tags import Shop, Category
 from main.models.sale import Sale
 
 
-class BasketModel(admin.ModelAdmin):
+class BasketAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'status', 'get_owner_name')
     list_display_links = ('id', 'name')
     ordering = ('-created_at',)
@@ -19,7 +19,7 @@ class BasketModel(admin.ModelAdmin):
         return instance.owner.username
 
 
-class ItemModel(admin.ModelAdmin):
+class ItemAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'get_shop_name', 'get_category_name', "price")
     list_display_links = ('id', 'name')
     search_fields = ('name',)
@@ -36,14 +36,14 @@ class ItemModel(admin.ModelAdmin):
     get_category_name.short_description = "CATEGORY"
 
 
-class SaleModel(admin.ModelAdmin):
+class SaleAdmin(admin.ModelAdmin):
     list_display = ('item', 'value', 'from_date', 'to_date')
     list_filter = ('value',)
 
 
 admin.site.register(User)
 admin.site.register(Shop)
-admin.site.register(Item, ItemModel)
+admin.site.register(Item, ItemAdmin)
 admin.site.register(ItemComment)
 # admin.site.register(ItemCommentLike)
 admin.site.register(ItemLike)
@@ -53,4 +53,4 @@ admin.site.register(Basket)
 admin.site.register(Order)
 admin.site.register(PurchaseHistory)
 
-admin.site.register(Sale, SaleModel)
+admin.site.register(Sale, SaleAdmin)

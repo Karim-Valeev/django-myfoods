@@ -11,12 +11,10 @@ class AuthForm(forms.Form):
 
 
 class RegForm(UserCreationForm):
-    birthdate = forms.DateField(label='День рождения', required=False)
-    profile_pic = forms.ImageField(label="Аватарка", required=False)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'birthdate', 'password1', 'password2',)
+        fields = ('username', 'email', 'birthdate', 'profile_pic', 'password1', 'password2',)
 
 
 class BasketForm(forms.ModelForm):

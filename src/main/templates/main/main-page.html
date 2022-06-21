@@ -10,19 +10,19 @@
 {#        There will be some info about us in the future#}
 {#    </div>#}
 
-    <div class="profile center main-page-text" >
+    <div class="center main-page-text">
         {% if user.is_authenticated %}
             <div>
-                <a href="{% url 'logout' %}">logout</a>
+                <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Logout</a>
             </div>
         {% else %}
             <div>
-                <a href="{% url 'login' %}">login</a>
+                <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login!</a>
             </div>
-
         {% endif %}
+    <div>or</div>
         <div>
-            <a href="{% url 'register' %}">register</a>
+            <a class="btn btn-primary" href="{% url 'register' %}" role="button">Register!</a>
         </div>
     </div>
 

@@ -2,31 +2,6 @@
 {% block title %}Login{% endblock %}
 {% block content %}
 
-{#    <form action="" method="post" class="list login-form">#}
-{##}
-{#        {% if form.errors %}#}
-{#            <b>Проверьте следующие поля:</b>#}
-{#            <ul>#}
-{#                {% for field, error in form.errors.items %}#}
-{#                    {{ field }}: {{ error }}#}
-{#                    {{ error }}#}
-{#                {% endfor %}#}
-{#            </ul>#}
-{#        {% endif %}#}
-{##}
-{#        {% csrf_token %}#}
-{##}
-{#        <div class="form-group">#}
-{#            <label for="exampleInputEmail1">Email</label>#}
-{#            <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" autofocus>#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#            <label for="exampleInputPassword1">Password</label>#}
-{#            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">#}
-{#        </div>#}
-{#        <button type="submit" class="btn btn-primary">Login</button>#}
-{#    </form>#}
-
     <form action="" method="POST">
         {% csrf_token %}
         <div class="container mt-4 mb-4">
@@ -43,10 +18,22 @@
                         <input type="password" name="password" required class="form-control mb-2" style="width:100%"  placeholder="Enter password here:" value=""/>
                     </div>
 
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                    <div class="error-message">
+                        {% if form.errors %}
+                            <b>Проверьте следующие поля:</b>
+                            <ul>
+                                {% for field, error in form.errors.items %}
+                                    {{ field }}: {{ error }}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {% if message %}
+                            <p>
+                                <b>{{ message }}</b>
+                            </p>
+                        {% endif %}
                     </div>
+
                     <div class="center">
                         <button type="submit" class="btn btn-primary">
                             <span class="login-button">
@@ -54,7 +41,7 @@
                             </span>
                         </button>
                     </div>
-                    <div class="center2 top-margin-10px">
+                    <div class="center top-margin-10px font-16px">
                         New to MyFoods? <a href="{% url 'register' %}">Create an account.</a>
                     </div>
                 </div>

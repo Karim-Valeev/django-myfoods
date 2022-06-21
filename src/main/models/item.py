@@ -13,7 +13,7 @@ class Item(BaseModel):
     shop = models.ForeignKey(Shop, on_delete=CASCADE, related_name="items")
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, related_name="category_items")
 
-    icon = models.ImageField(null=True, blank=True)
+    icon = models.ImageField(null=True, blank=True, upload_to='', default='default-product-image.png',)
 
     amount = models.IntegerField()
 
@@ -21,7 +21,7 @@ class Item(BaseModel):
     proteins = models.IntegerField(null=True, blank=True)
     fats = models.IntegerField(null=True, blank=True)
     carbohydrates = models.IntegerField(null=True, blank=True)
-    like_counter = models.IntegerField(default=0)
+    like_counter = models.IntegerField(blank=True, default=0)
 
     def __str__(self):
         return f"{self.name}, {self.shop.__str__()}"

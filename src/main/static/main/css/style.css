@@ -2,8 +2,16 @@
     text-align: center;
 }
 
-.center2{
-    text-align: center;
+.main-page-text{
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.about-block{
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
 }
 
 .reg-title{
@@ -14,27 +22,49 @@
     margin-top: 10px;
 }
 
+.top-margin-20px{
+    margin-top: 20px;
+}
+
 .top-margin-50px{
     margin-top: 50px;
 }
 
-.list{
-    margin: 10px;
+.left-margin-10px{
+    margin-left: 10px;
 }
 
 .login-form{
     width: 25%;
 }
 
-.main-page-text{
-    margin-top: 50px;
+.fav-categories{
+    margin: 10px 0 10px 0;
+    padding: 5px;
+    border: #b6bfff 1px solid;
+    display: inline-block;
 }
 
-.fav-categories{
-    margin: 10px;
-    padding: 5px;
-    border: blue 1px solid;
-    display: inline-block;
+.profile-page-block{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.content-block{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.sales-page-list{
+    margin-top: 10px;
+}
+
+.sales-page-list-element{
+    margin: 10px 0 10px 0;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 .item-list{
@@ -45,10 +75,17 @@
     display: inline-block;
     margin: 5px;
     padding: 5px;
-    border: blue 1px solid;
+    border: #b6bfff 1px solid;
+}
+
+
+.item-head{
+    align-items: center;
+    display: flex;
 }
 
 .item-name{
+    margin-left: 10px;
     font-size: 30px;
 }
 
@@ -57,7 +94,7 @@
 }
 
 .comment-list{
-    border: blue 1px solid;
+    border: #b6bfff 1px solid;
     margin: 5px;
     padding: 5px;
     width: 300px;
@@ -66,7 +103,7 @@
 }
 
 .comment{
-    border: blue 1px solid;
+    border: #b6bfff 1px solid;
     margin: 5px;
     padding: 5px;
     font-style: italic;
@@ -96,7 +133,7 @@
     text-decoration: none;
     padding: 2px;
     text-align: center;
-    color: blue;
+    color: #b6bfff;
 }
 
 .item-like-pushed{
@@ -116,13 +153,22 @@
     text-decoration: none;
     padding: 2px;
     text-align: center;
-    color: blue;
+    color: #b6bfff;
 }
 
 .item-like-counter {
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 10px;
-    color: blue;
+    color: #b6bfff;
+}
+
+.error-message{
+    margin-top: 10px;
+    color: #ff001d;
+}
+
+.font-16px{
+    font-size: 16px;
 }
 

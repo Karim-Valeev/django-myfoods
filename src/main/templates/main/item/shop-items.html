@@ -6,13 +6,16 @@
     {% if items %}
         {% for item in items %}
             <div class="item">
-                <div class="m-3 item-name">
-                    <a class="item-name-href" href="{% url 'item' item.id %}">
-                        <i>
-                            {{ item.name }}
-                        </i>
-                    </a>
-                </div>
+                <a class="profile-link" href="{% url 'item' item.id %}">
+                    <div class="m-3 item-head">
+                        <div>
+                            <img src="{{ item.icon.url }}" width="100px" height="100px" alt="Item picture">
+                        </div>
+                        <div class="item-name">
+                            <i>{{ item.name }}</i>
+                        </div>
+                    </div>
+                </a>
                 <div class="comment-list">
                     {% for comment in item.comments.all %}
                         <div class="comment">

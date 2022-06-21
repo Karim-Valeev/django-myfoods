@@ -7,7 +7,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('jet/', include('jet.urls', 'jet')),
-    path('api/', include('api.urls')),
+    path('api/v0/', include('api.urls')),
     path('', include('main.urls')),
 ]
 
