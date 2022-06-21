@@ -27,7 +27,7 @@ class BasketChangeOnlyForOwnerPermission(BasePermission):
 class BasketViewSet(ModelViewSet):
     """All actions with baskets."""
 
-    permission_classes = [BasketChangeOnlyForOwnerPermission, IsAuthenticated]
+    permission_classes = [BasketChangeOnlyForOwnerPermission]
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)

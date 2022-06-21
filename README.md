@@ -22,4 +22,5 @@ DevOps course repo: https://github.com/42praktika/DevOps-Course
 
 ### Запуск тестов
 
+- `pytest src --disable-warnings -v` - запуск всех тестов в папке src на одном ядре без warnings с verbosity 1
 - `pytest -n 2 src` - запуск всех тестов в папке src на двух ядрах
