@@ -31,6 +31,7 @@ SECRET_KEY = "+drt7b0d_5pf32x-qqayrh+t5d6gr%afb-*r^qi+cc$+3-3t0m"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
+# TODO: Добавь только конкретные хосты
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     "graphene_django",
     "main",
     "api",
+    "graphql_app",
 ]
 
 MIDDLEWARE = [
@@ -118,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Django Rest Framework configuration
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework_simplejwt.authentication.JWTAuthentication"],
+    # "DEFAULT_AUTHENTICATION_CLASSES": ["rest_framework_simplejwt.authentication.JWTAuthentication"],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 5,
 }
@@ -215,4 +217,8 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": crontab(day_of_week="friday", hour=16, minute=30),
         "args": (),
     },
+}
+
+GRAPHENE = {
+    "SCHEMA": "graphql_app.schema.schema"
 }

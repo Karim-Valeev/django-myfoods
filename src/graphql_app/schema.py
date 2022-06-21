@@ -1,10 +1,19 @@
 import graphene
 from graphene_django import DjangoObjectType
 
-from .models import Basket
+from main.models import Basket
 
+"""
+Query example:
 
-# Todo можно перенести в отдельное приложение
+query {
+  allBaskets{
+    id
+    name
+    createdAt
+  }
+}
+"""
 
 class BasketType(DjangoObjectType):
     class Meta:

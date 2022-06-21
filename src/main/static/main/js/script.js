@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+    console.log( "Basket delete script is ready!" );
     $('.delete-basket-button').click(function () {
         let $basket = $($(this).closest('span').closest('li'));
         let id = $basket.attr('data-id');
@@ -21,7 +21,7 @@ $( document ).ready(function() {
 function deleteBasket($basket, id, csrfToken) {
     $.ajax({
         type: "DELETE",
-        url: "http://127.0.0.1:8000/api/baskets/" + id,
+        url: "http://127.0.0.1:8000/api/v0/baskets/" + id,
         contentType: "application/json",
         dataType:'json',
         beforeSend: function (xhr) {

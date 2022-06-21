@@ -15,7 +15,7 @@ def send_sales():
         if len(sales) > 0:
             for sale in sales:
                 str_value = f'{int(sale.value * 100)}%'
-                message += f'{str_value} sale on {sale.item.name} in {sale.item.shop.name}!\r\n'
+                message += f'{str_value} sale on {sale.item.name} in {sale.item.shop.name}, {sale.item.shop.address}!\r\n'
             print(message)
             send_mail(
                 'Weekly sales from your favorite service MyFoods!',

@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('jet/', include('jet.urls', 'jet')),
     path('api/v0/', include('api.urls')),
+    path("graphql/v0", include('graphql_app.urls')),
     path('', include('main.urls')),
 ]
 

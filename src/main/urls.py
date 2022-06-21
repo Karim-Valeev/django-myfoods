@@ -1,7 +1,5 @@
 from django.urls import path, re_path
-from graphene_django.views import GraphQLView
 
-from main.schema import schema
 from main.views import *
 
 urlpatterns = [
@@ -28,6 +26,4 @@ urlpatterns = [
     path('sales/', SaleListView.as_view(), name="sales"),
 
     path('logout/', logout_view, name='logout'),
-
-    path("graphql/", GraphQLView.as_view(graphiql=True, schema=schema)),
 ]

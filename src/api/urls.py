@@ -1,11 +1,10 @@
 from django.urls import path, re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
-from rest_framework.routers import SimpleRouter, DefaultRouter
+from rest_framework.routers import SimpleRouter
 from rest_framework_simplejwt import views as jwt_views
 
 from api.views import *
-
 
 # роутер нужен, чтобы сгенерить урлы под вью сет и самому их не прописывать соотвественно
 router = SimpleRouter()
