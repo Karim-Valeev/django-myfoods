@@ -37,25 +37,6 @@ jobs:
       - name: Run linters
         run: git init . && git add . && pre-commit run --all-files
 
-  docker-build-push:
-    runs-on: ubuntu-latest
-    needs: tests-and-linters
-    steps:
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-
-      - name: Checkout repository
-      - uses: actions/checkout@v2
-
-      - name: Build Docker Django Image
-        run: docker image build . --tag karimka2022/myfoods:latest
-
-      - name: Push Docker Django Image
-        run: docker image push karimka2022/myfoods:latest
-
   build:
     runs-on: ubuntu-latest
     needs: tests-and-linters
@@ -121,6 +102,25 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: latest
 
+#  docker-build-push:
+#    runs-on: ubuntu-latest
+#    needs: tests-and-linters
+#    steps:
+#      - name: Login to DockerHub
+#        uses: docker/login-action@v1
+#        with:
+#          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+#          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+#
+#      - name: Checkout repository
+#      - uses: actions/checkout@v2
+#
+#      - name: Build Docker Django Image
+#        run: docker image build . --tag karimka2022/myfoods:latest
+#
+#      - name: Push Docker Django Image
+#        run: docker image push karimka2022/myfoods:latest
+
   telegram-notify:
     needs: build
     runs-on: ubuntu-latest
@@ -134,7 +134,7 @@ jobs:
           message: |
             ${{ github.actor }} just pushed ${{ github.ref }} into ${{ github.repository }} with comment "${{ github.event.head_commit.message }}"
             ${{ github.event.compare }}
-      
+
       - name: PR notify
         if: ${{ github.event_name == 'pull_request' }}
         uses: appleboy/telegram-action@master
