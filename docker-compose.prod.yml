@@ -24,6 +24,7 @@ services:
     expose:
       - 6379
 
+# TODO: regisrty image pulling
   nginx:
     build:
       context: ./
@@ -40,10 +41,7 @@ services:
     depends_on:
       - django
 
-#""" todo start launching Docker as not root user
-#""" todo add self-hosted github runner
-#""" todo wrap everything with minikube
-
+# TODO: regisrty image pulling
   django:
     build:
       context: ./
@@ -60,6 +58,7 @@ services:
       - postgres
       - redis
 
+# TODO: regisrty image pulling
   celery-beat:
     build:
       context: ./
