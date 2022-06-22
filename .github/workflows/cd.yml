@@ -11,6 +11,12 @@ jobs:
       - name: PWD
         run: pwd
 
+      - name: CD
+        run: cd ~/django-myfoods
+
+      - name: PWD
+        run: pwd
+
 #      - name: Make pull
 #        uses: actions/checkout@v2
 #
