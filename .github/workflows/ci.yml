@@ -44,11 +44,11 @@ jobs:
       matrix:
         include:
           - dockerfile: ./deploy/nginx/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/nginx
+            image: ghcr.io/karim-valeev/django-myfoods/nginx
           - dockerfile: ./deploy/python/django/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/django
+            image: ghcr.io/karim-valeev/django-myfoods/django
           - dockerfile: ./deploy/python/celery/Dockerfile
-            image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/celery-beat
+            image: ghcr.io/karim-valeev/django-myfoods/celery-beat
     permissions:
       contents: read
       packages: write
