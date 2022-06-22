@@ -39,7 +39,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    needs: tests
+    needs: tests-and-linters
     permissions:
       contents: read
       packages: write
