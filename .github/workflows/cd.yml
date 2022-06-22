@@ -8,14 +8,13 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: PWD
-        run: pwd
+      - name: Deploy with docker-compose
+        working-directory: ./django-myfoods
+        run: |
+          pwd
+          git pull origin master
+          docker-compose -f docker-compose.prod.yml up --build -d
 
-      - name: CD
-        run: cd ~/django-myfoods
-
-      - name: PWD
-        run: pwd
 
 #      - name: Make pull
 #        uses: actions/checkout@v2
