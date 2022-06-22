@@ -12,13 +12,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
     env_file:
       - ./.env
-    ports:
-      - 5432:5432
+    expose:
+      - 5432
+    logging:
+      driver: loki
+      options:
+        loki-url: https://${GRAFANA_USER}:${GRAFANA_PASSWORD}@logs-prod3.grafana.net/loki/api/v1/push
 
   redis:
     image: redis:6-alpine
-    ports:
-      - 6379:6379
+    expose:
+      - 6379
 
   nginx:
     build:
@@ -39,7 +43,6 @@ services:
 #""" todo start launching Docker as not root user
 #""" todo add self-hosted github runner
 #""" todo wrap everything with minikube
-#  docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
 
   django:
     build:
