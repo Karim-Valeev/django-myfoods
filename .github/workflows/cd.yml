@@ -9,7 +9,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Deploy with docker-compose
-        working-directory: ./django-myfoods
+        working-directory: ~/django-myfoods
         run: |
           pwd
           git pull origin master
