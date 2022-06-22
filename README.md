@@ -40,3 +40,7 @@ query {
   }
 }
 ```
+
+### Запуск Github Runner   
+На удаленной Ubuntu машине:  
+- `nohup actions-runner/run.sh &` - запуск раннера в фоне
