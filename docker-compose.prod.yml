@@ -5,6 +5,21 @@ volumes:
   staticfiles_prod:
 
 services:
+
+  postgres:
+    image: postgres:12.7-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+
   nginx:
     build:
       context: ./
@@ -17,31 +32,23 @@ services:
     logging:
       driver: loki
       options:
-        loki-url: http://localhost:3100/loki/api/v1/push
-        loki-external-labels: job=dockerlogs,owner=karim,environment=production
+        loki-url: https://${GRAFANA_USER}:${GRAFANA_PASSWORD}@logs-prod3.grafana.net/loki/api/v1/push
     depends_on:
       - django
 
-#""" todo add simple driver
-#""" todo grafana envs
-#""" todo rm loki container
-#""" todo rm grafana container
 #""" todo start launching Docker as not root user
 #""" todo add self-hosted github runner
 #""" todo wrap everything with minikube
-#    logging:
-#      driver: loki
-#      options:
-#        loki-url: "https://${GRAFANA_USER}:${GRAFANA_PASSWORD}@logs-prod-eu-west-0.grafana.net/loki/api/v1/push"
-#"""
+#  docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions
 
   django:
     build:
       context: ./
       dockerfile: deploy/python/django/Dockerfile
+#      TODO: Add gunicorn
     command: python src/manage.py runserver 0.0.0.0:8000
     volumes:
-      - staticfiles_prod:/app/src/staticfiles/
+      - staticfiles_prod:/opt/app/src/staticfiles/
     env_file:
       - ./.env
     expose:
@@ -62,42 +69,9 @@ services:
     command: celery -A myfoods beat -l info
     ports: []
 
-  postgres:
-    image: postgres:12.7-alpine
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    env_file:
-      - ./.env
-    ports:
-      - 5432:5432
-
-  redis:
-    image: redis:6-alpine
-    ports:
-      - 6379:6379
-
   flower:
     image: mher/flower:0.9.7
     env_file:
       - ./.env
     ports:
       - 5555:5555
-
-  grafana:
-    image: grafana/grafana:7.2.2
-    container_name: grafana
-    volumes:
-      - ./deploy/grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
-    ports:
-      - "3000:3000"
-
-  loki:
-    image: grafana/loki:2.0.0
-    container_name: loki
-    volumes:
-      - ./deploy/loki/config.yaml:/etc/config/loki.yaml
-    entrypoint:  # todo refactor
-      - /usr/bin/loki
-      - -config.file=/etc/config/loki.yaml
-    ports:
-      - "3100:3100"

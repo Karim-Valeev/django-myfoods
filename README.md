@@ -6,15 +6,19 @@ Django course repo: https://gitlab.com/atnartur.uni/web-monitoring
 DevOps course repo: https://github.com/42praktika/DevOps-Course
 
 ### Запуск
-
 - `python3 -m venv env` - создать виртуальное окружение (не забудьте создать файлик .env с вашими переменными окружения)
 - `source env/bin/activate` - войти в виртуальное окружение 
 - `pip install -r requirements.txt` - установка зависимостей
-- `docker-compose -f docker-compose.prod.yml up --build -d` - сборка проекта
+- `docker-compose -f docker-compose.ci.yml up --build -d` - Запуск PostgreSQL и Redis
 - `python src/manage.py migrate` - применить миграции
 - `python src/manage.py collectstatic` - собрать всю статику в одну папку
 - `pip3 install pre-commit && pre-commit install` - включение pre-commit hook для автоматического запуска линтера
 - `python src/manage.py runserver` - запуск сервера для разработки
+
+или
+
+- `docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions` - скачивание плагина для Docker драйвера логирования Loki
+- `docker-compose -f docker-compose.prod.yml up --build -d` - сборка всего проекта
 
 ### Загрузка данных
 

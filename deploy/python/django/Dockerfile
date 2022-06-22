@@ -1,6 +1,6 @@
-FROM python:3.8
+FROM python:3.9.6
 
-WORKDIR /app
+WORKDIR /opt/app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -13,6 +13,6 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN chmod +x /app/deploy/python/django/run.sh
+RUN chmod +x /opt/app/deploy/python/django/run.sh
 
-ENTRYPOINT ["/app/deploy/python/django/run.sh"]
+ENTRYPOINT ["/opt/app/deploy/python/django/run.sh"]

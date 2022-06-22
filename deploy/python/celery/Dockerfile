@@ -1,12 +1,14 @@
-FROM python:3.8
+FROM python:3.9.6
 
-WORKDIR /app
+WORKDIR /opt/app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN pip install --upgrade --user pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt --user
+RUN apt-get update && apt-get -y install gcc libpq-dev python3-dev netcat git
 
-COPY ./src /app
+RUN pip install --upgrade pip
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY ./src .
