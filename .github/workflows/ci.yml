@@ -99,8 +99,8 @@ jobs:
           context: ./
           file: ${{ matrix.dockerfile }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: latest
+          tags: latest
+          labels: ${{ steps.meta.outputs.labels }}
 
 #  docker-build-push:
 #    runs-on: ubuntu-latest
@@ -121,26 +121,26 @@ jobs:
 #      - name: Push Docker Django Image
 #        run: docker image push karimka2022/myfoods:latest
 
-  telegram-notify:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Push notify
-        if: ${{ github.event_name == 'push' }}
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_CHAT_ID }}
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: |
-            ${{ github.actor }} just pushed ${{ github.ref }} into ${{ github.repository }} with comment "${{ github.event.head_commit.message }}"
-            ${{ github.event.compare }}
-
-      - name: PR notify
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
-          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: |
-            ${{ github.actor }} just opened PR in ${{ github.repository }} with comment "${{github.event.pull_request.title}}"
-            ${{ github.event.pull_request.html_url }}
+#  telegram-notify:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Push notify
+#        if: ${{ github.event_name == 'push' }}
+#        uses: appleboy/telegram-action@master
+#        with:
+#          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+#          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+#          message: |
+#            ${{ github.actor }} just pushed ${{ github.ref }} into ${{ github.repository }} with comment "${{ github.event.head_commit.message }}"
+#            ${{ github.event.compare }}
+#
+#      - name: PR notify
+#        if: ${{ github.event_name == 'pull_request' }}
+#        uses: appleboy/telegram-action@master
+#        with:
+#          to: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+#          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+#          message: |
+#            ${{ github.actor }} just opened PR in ${{ github.repository }} with comment "${{github.event.pull_request.title}}"
+#            ${{ github.event.pull_request.html_url }}
