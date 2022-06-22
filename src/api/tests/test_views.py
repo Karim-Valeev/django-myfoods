@@ -50,7 +50,6 @@ def test_unauthorized_check_api_request(api_client):
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_get_access_token(api_client, create_user, get_password):
     user = create_user()
     url = reverse("token-obtain-pair")
@@ -70,7 +69,6 @@ def test_redoc_documentation(api_client):
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_basket_api_view(api_client, create_user_basket):
     url = "http://127.0.0.1:8000/api/v0/baskets/"
     response = api_client.get(url)
