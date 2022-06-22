@@ -40,8 +40,7 @@ services:
 
   django:
     image: ${IMAGE}/django:master
-#      TODO: Add gunicorn
-    command: python src/manage.py runserver 0.0.0.0:8000
+    command: gunicorn myfoods.wsgi --chdir src --bind=0.0.0.0:8000
     volumes:
       - staticfiles_prod:/opt/app/src/staticfiles/
     env_file:
