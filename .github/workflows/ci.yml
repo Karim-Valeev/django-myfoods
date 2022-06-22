@@ -11,7 +11,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  tests:
+  tests-and-linters:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -33,6 +33,9 @@ jobs:
 
       - name: Run Django tests
         run: pytest src --disable-warnings -v
+
+      - name: Run linters
+        run: git init . && git add . && pre-commit run --all-files
 
   build:
     runs-on: ubuntu-latest
