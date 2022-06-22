@@ -24,11 +24,8 @@ services:
     expose:
       - 6379
 
-# TODO: regisrty image pulling
   nginx:
-    build:
-      context: ./
-      dockerfile: deploy/nginx/Dockerfile
+    image: ${IMAGE}/
     restart: always
     volumes:
       - staticfiles_prod:/staticfiles/

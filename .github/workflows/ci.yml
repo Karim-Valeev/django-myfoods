@@ -41,6 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests-and-linters
     strategy:
+      fail-fast: false
       matrix:
         include:
           - dockerfile: ./deploy/nginx/Dockerfile
@@ -99,7 +100,7 @@ jobs:
           context: ./
           file: ${{ matrix.dockerfile }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
 #  docker-build-push:
