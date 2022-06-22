@@ -5,11 +5,7 @@ from main.models.item import Item
 
 
 class Sale(models.Model):
-    item = models.ForeignKey(
-        Item,
-        on_delete=CASCADE,
-        related_name="sales"
-    )
+    item = models.ForeignKey(Item, on_delete=CASCADE, related_name="sales")
     value = models.DecimalField(default=0.0, max_digits=3, decimal_places=2)
     from_date = models.DateTimeField()
     to_date = models.DateTimeField()

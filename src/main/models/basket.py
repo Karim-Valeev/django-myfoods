@@ -23,10 +23,7 @@ class Basket(BaseModel):
     name = models.CharField(max_length=32)
     owner = models.ForeignKey(User, on_delete=CASCADE, related_name="baskets")
     delivery_address = models.CharField(null=True, blank=True, max_length=500)
-    status = models.ForeignKey(
-        Status,
-        on_delete=models.CASCADE,
-        related_name="baskets")
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, related_name="baskets")
     favourite = models.BooleanField(default=False)
 
     def __str__(self):
@@ -45,4 +42,4 @@ class Order(BaseModel):
         return f"Order № {self.pk}"
 
     class Meta:
-        db_table = 'basket_item'
+        db_table = "basket_item"

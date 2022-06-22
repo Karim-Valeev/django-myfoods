@@ -6,4 +6,4 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myfoods.settings")
 
 app = Celery("myfoods")
 app.config_from_object("django.conf:settings", namespace="CELERY")
-app.autodiscover_tasks(packages=["main", 'api'])
+app.autodiscover_tasks(packages=["main", "api"])

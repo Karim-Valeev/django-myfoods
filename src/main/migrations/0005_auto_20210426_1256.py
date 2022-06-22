@@ -8,33 +8,39 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0004_auto_20210426_1130'),
+        ("main", "0004_auto_20210426_1130"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='item',
-            name='comments',
-            field=models.ManyToManyField(related_name='comments', through='main.ItemComment', to=settings.AUTH_USER_MODEL),
+            model_name="item",
+            name="comments",
+            field=models.ManyToManyField(
+                related_name="comments", through="main.ItemComment", to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AddField(
-            model_name='item',
-            name='likes',
-            field=models.ManyToManyField(related_name='likes', through='main.ItemLike', to=settings.AUTH_USER_MODEL),
+            model_name="item",
+            name="likes",
+            field=models.ManyToManyField(related_name="likes", through="main.ItemLike", to=settings.AUTH_USER_MODEL),
         ),
         migrations.AlterField(
-            model_name='itemcomment',
-            name='item',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main.item'),
+            model_name="itemcomment",
+            name="item",
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to="main.item"),
         ),
         migrations.AlterField(
-            model_name='itemcomment',
-            name='owner',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_comments', to=settings.AUTH_USER_MODEL),
+            model_name="itemcomment",
+            name="owner",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, related_name="user_comments", to=settings.AUTH_USER_MODEL
+            ),
         ),
         migrations.AlterField(
-            model_name='itemlike',
-            name='owner',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='user_likes', to=settings.AUTH_USER_MODEL),
+            model_name="itemlike",
+            name="owner",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, related_name="user_likes", to=settings.AUTH_USER_MODEL
+            ),
         ),
     ]

@@ -6,15 +6,21 @@ from main.models.item import ItemComment
 
 
 class AuthForm(forms.Form):
-    email = forms.CharField(label='Email')
-    password = forms.CharField(label='Password')
+    email = forms.CharField(label="Email")
+    password = forms.CharField(label="Password")
 
 
 class RegForm(UserCreationForm):
-
     class Meta:
         model = User
-        fields = ('username', 'email', 'birthdate', 'profile_pic', 'password1', 'password2',)
+        fields = (
+            "username",
+            "email",
+            "birthdate",
+            "profile_pic",
+            "password1",
+            "password2",
+        )
 
 
 class BasketForm(forms.ModelForm):
@@ -22,7 +28,10 @@ class BasketForm(forms.ModelForm):
 
     class Meta:
         model = Basket
-        fields = ('name', 'delivery_address',)
+        fields = (
+            "name",
+            "delivery_address",
+        )
 
 
 class CommentForm(forms.ModelForm):
@@ -30,4 +39,7 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = ItemComment
-        fields = ('item', 'text',)
+        fields = (
+            "item",
+            "text",
+        )

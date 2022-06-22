@@ -6,78 +6,78 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0001_initial'),
+        ("main", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='basket',
-            name='updated_at',
+            model_name="basket",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
         migrations.AlterField(
-            model_name='item',
-            name='created_at',
+            model_name="item",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='item',
-            name='updated_at',
+            model_name="item",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
         migrations.AlterField(
-            model_name='itemcomment',
-            name='created_at',
+            model_name="itemcomment",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='itemcomment',
-            name='updated_at',
+            model_name="itemcomment",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
         migrations.AlterField(
-            model_name='itemlike',
-            name='created_at',
+            model_name="itemlike",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='itemlike',
-            name='updated_at',
+            model_name="itemlike",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='created_at',
+            model_name="order",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='order',
-            name='updated_at',
+            model_name="order",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
         migrations.AlterField(
-            model_name='status',
-            name='created_at',
+            model_name="status",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='status',
-            name='updated_at',
+            model_name="status",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='created_at',
+            model_name="user",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='profile_pic',
-            field=models.ImageField(blank=True, default='cube.jpg', null=True, upload_to=''),
+            model_name="user",
+            name="profile_pic",
+            field=models.ImageField(blank=True, default="cube.jpg", null=True, upload_to=""),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='updated_at',
+            model_name="user",
+            name="updated_at",
             field=models.DateTimeField(auto_now=True, null=True),
         ),
     ]

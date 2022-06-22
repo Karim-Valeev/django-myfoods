@@ -13,7 +13,12 @@ class Item(BaseModel):
     shop = models.ForeignKey(Shop, on_delete=CASCADE, related_name="items")
     category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL, related_name="category_items")
 
-    icon = models.ImageField(null=True, blank=True, upload_to='', default='default-product-image.png',)
+    icon = models.ImageField(
+        null=True,
+        blank=True,
+        upload_to="",
+        default="default-product-image.png",
+    )
 
     amount = models.IntegerField()
 
@@ -31,8 +36,8 @@ class Item(BaseModel):
 
 
 class ItemComment(BaseModel):
-    item = models.ForeignKey(Item, on_delete=CASCADE, related_name='comments')
-    owner = models.ForeignKey(User, related_name='user_comments', on_delete=CASCADE)
+    item = models.ForeignKey(Item, on_delete=CASCADE, related_name="comments")
+    owner = models.ForeignKey(User, related_name="user_comments", on_delete=CASCADE)
     text = models.TextField()
 
     def __str__(self):

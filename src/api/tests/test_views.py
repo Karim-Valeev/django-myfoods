@@ -30,11 +30,7 @@ def create_filling_status(db):
 
 @pytest.fixture
 def create_user_basket(db, create_user, create_filling_status):
-    basket = Basket(
-        name='Test basket',
-        owner=create_user(),
-        status=create_filling_status
-    )
+    basket = Basket(name="Test basket", owner=create_user(), status=create_filling_status)
     basket.save()
     return basket
 
@@ -74,4 +70,4 @@ def test_redoc_documentation(api_client):
 def test_basket_api_view(api_client, create_user_basket):
     url = "http://127.0.0.1:8000/api/v0/baskets/"
     response = api_client.get(url)
-    assert "Test basket" == response.data["results"][0]['name']
+    assert "Test basket" == response.data["results"][0]["name"]

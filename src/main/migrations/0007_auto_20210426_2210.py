@@ -7,22 +7,27 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0006_auto_20210426_1319'),
+        ("main", "0006_auto_20210426_1319"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='item',
-            name='likes',
+            model_name="item",
+            name="likes",
         ),
         migrations.AlterField(
-            model_name='itemlike',
-            name='item',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='likes', to='main.item'),
+            model_name="itemlike",
+            name="item",
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name="likes", to="main.item"),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='favourite_categories',
-            field=models.ManyToManyField(db_table='user_favourite_category', related_name='favourite_categories', to='main.Category', verbose_name='Favourite category'),
+            model_name="user",
+            name="favourite_categories",
+            field=models.ManyToManyField(
+                db_table="user_favourite_category",
+                related_name="favourite_categories",
+                to="main.Category",
+                verbose_name="Favourite category",
+            ),
         ),
     ]

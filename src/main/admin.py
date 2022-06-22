@@ -8,22 +8,25 @@ from main.models.sale import Sale
 
 
 class BasketAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'status', 'get_owner_name')
-    list_display_links = ('id', 'name')
-    ordering = ('-created_at',)
-    search_fields = ('status',)
-    list_filter = ('status', 'created_at')
-    readonly_fields = ('created_at',)
+    list_display = ("id", "name", "status", "get_owner_name")
+    list_display_links = ("id", "name")
+    ordering = ("-created_at",)
+    search_fields = ("status",)
+    list_filter = ("status", "created_at")
+    readonly_fields = ("created_at",)
 
     def get_owner_name(self, instance: Basket):
         return instance.owner.username
 
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'get_shop_name', 'get_category_name', "price")
-    list_display_links = ('id', 'name')
-    search_fields = ('name',)
-    list_filter = ('id', 'price',)
+    list_display = ("id", "name", "get_shop_name", "get_category_name", "price")
+    list_display_links = ("id", "name")
+    search_fields = ("name",)
+    list_filter = (
+        "id",
+        "price",
+    )
 
     def get_shop_name(self, instance: Item):
         return instance.shop.__str__()
@@ -37,8 +40,8 @@ class ItemAdmin(admin.ModelAdmin):
 
 
 class SaleAdmin(admin.ModelAdmin):
-    list_display = ('item', 'value', 'from_date', 'to_date')
-    list_filter = ('value',)
+    list_display = ("item", "value", "from_date", "to_date")
+    list_filter = ("value",)
 
 
 admin.site.register(User)

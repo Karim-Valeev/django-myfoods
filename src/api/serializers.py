@@ -11,26 +11,29 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'email')
+        fields = ("id", "username", "email")
 
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
-        fields = ('code', 'name')
+        fields = ("code", "name")
 
 
 class BasketCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Basket
-        fields = ('name', 'delivery_address', 'favourite')
+        fields = ("name", "delivery_address", "favourite")
 
 
 class BasketUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Basket
-        fields = ('id', 'created_at', 'name', 'delivery_address', 'favourite')
-        read_only_fields = ('id', 'created_at', )
+        fields = ("id", "created_at", "name", "delivery_address", "favourite")
+        read_only_fields = (
+            "id",
+            "created_at",
+        )
 
 
 class BasketSerializer(serializers.ModelSerializer):
@@ -39,6 +42,4 @@ class BasketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Basket
-        fields = ('id', 'created_at', 'name',
-                  'delivery_address', 'favourite', 'status',
-                  'owner')
+        fields = ("id", "created_at", "name", "delivery_address", "favourite", "status", "owner")

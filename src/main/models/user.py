@@ -35,29 +35,25 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     role = models.CharField(choices=Role.choices, default=Role.user, max_length=50)
     birthdate = models.DateField(null=True, blank=True)
-    profile_pic = models.ImageField(upload_to='', default='default_profile_pic.jpg', blank=True)
+    profile_pic = models.ImageField(upload_to="", default="default_profile_pic.jpg", blank=True)
 
     favourite_categories = models.ManyToManyField(
         Category,
-        db_table='user_favourite_category',
-        verbose_name='Favourite category',
-        related_name='favourite_categories'
+        db_table="user_favourite_category",
+        verbose_name="Favourite category",
+        related_name="favourite_categories",
     )
 
-    likes = models.ManyToManyField(
-        'Item',
-        through='ItemLike',
-        related_name='likes'
-    )
+    likes = models.ManyToManyField("Item", through="ItemLike", related_name="likes")
 
     @property
     def is_staff(self):
         return self.is_superuser
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
     class Meta:
-        db_table = 'profile'
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+        db_table = "profile"
+        verbose_name = "User"
+        verbose_name_plural = "Users"

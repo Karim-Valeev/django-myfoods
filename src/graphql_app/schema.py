@@ -3,23 +3,11 @@ from graphene_django import DjangoObjectType
 
 from main.models import Basket
 
-"""
-Query example:
-
-query {
-  allBaskets{
-    id
-    name
-    createdAt
-  }
-}
-"""
 
 class BasketType(DjangoObjectType):
     class Meta:
         model = Basket
-        fields = ("id", "name", "delivery_address",
-                  'status', 'favourite', 'created_at')
+        fields = ("id", "name", "delivery_address", "status", "favourite", "created_at")
 
 
 class BasketQuery(graphene.ObjectType):
@@ -29,7 +17,7 @@ class BasketQuery(graphene.ObjectType):
     def resolve_all_baskets(root, info):
         return Basket.objects.all()
 
-    def resolve_basket(root,info, id):
+    def resolve_basket(root, info, id):
         try:
             basket = Basket.objects.get(pk=id)
         except Basket.DoesNotExist:

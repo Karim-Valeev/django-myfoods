@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class GraphQLAppConfig(AppConfig):
-    name = 'graphql_app'
+    name = "graphql_app"
