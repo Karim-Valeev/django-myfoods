@@ -212,7 +212,6 @@ CELERY_BROKER_URL = REDIS_CONNECTION
 CELERY_BEAT_SCHEDULE = {
     "send-sales": {
         "task": "main.tasks.send_sales",
-        # "schedule": crontab(),
         "schedule": crontab(day_of_week="friday", hour=16, minute=30),
         "args": (),
     },
