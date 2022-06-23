@@ -124,7 +124,7 @@ jobs:
 
   telegram-notify:
     needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Push notify
         if: ${{ github.event_name == 'push' }}
