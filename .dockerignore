@@ -220,3 +220,4 @@ sites.txt
 celerybeat-schedule.db
 node_modules
 env
+staticfiles

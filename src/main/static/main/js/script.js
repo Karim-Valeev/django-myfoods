@@ -21,7 +21,7 @@ $( document ).ready(function() {
 function deleteBasket($basket, id, csrfToken) {
     $.ajax({
         type: "DELETE",
-        url: "http://127.0.0.1:8000/api/v0/baskets/" + id,
+        url: window.location.origin+"/api/v0/baskets/" + id,
         contentType: "application/json",
         dataType:'json',
         beforeSend: function (xhr) {
