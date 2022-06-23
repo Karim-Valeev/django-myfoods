@@ -37,6 +37,8 @@ services:
         loki-url: https://${GRAFANA_USER}:${GRAFANA_PASSWORD}@logs-prod3.grafana.net/loki/api/v1/push
     depends_on:
       - django
+      - postgres
+      - redis
 
   django:
     image: ${IMAGE}/django:master
