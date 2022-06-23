@@ -2,7 +2,7 @@ name: Notify, build and run tests
 
 on:
   push:
-    branches: [master, develop]
+    branches: [develop]
 
 env:
   # Use docker.io for Docker Hub if empty
