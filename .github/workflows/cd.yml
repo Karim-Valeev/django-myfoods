@@ -10,7 +10,11 @@ jobs:
     steps:
       - name: Deploy with docker-compose
         run: |
+          pwd
           cd ~/django-myfoods
+          pwd
+          git status
+          git checkout master
           git pull origin master
           docker-compose -f docker-compose.prod.yml up --build -d
 
