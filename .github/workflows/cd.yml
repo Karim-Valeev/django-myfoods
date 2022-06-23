@@ -1,6 +1,8 @@
 name: Deploy
 
 on:
+  release:
+    types: [ published ]
   push:
     branches: [master]
 
@@ -10,24 +12,7 @@ jobs:
     steps:
       - name: Deploy with docker-compose
         run: |
-          pwd
           cd ~/django-myfoods
-          pwd
-          git status
           git checkout master
           git pull origin master
-          whoami
           sudo docker-compose -f docker-compose.prod.yml up --build -d
-
-
-#      - name: Make pull
-#        uses: actions/checkout@v2
-#
-#      - name: Stop containers
-#        run: docker-compose stop
-#
-#      - name: Remove containers
-#        run: docker-compose rm -f
-#
-#      - name: Start container
-#        run: CURRENT_UID=$(id -u):$(id -g) docker-compose up --build -d
